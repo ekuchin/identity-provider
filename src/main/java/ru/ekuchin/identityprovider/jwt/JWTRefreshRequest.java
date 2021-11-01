@@ -1,4 +1,4 @@
-package ru.projectosnova.identityprovider.jwt;
+package ru.ekuchin.identityprovider.jwt;
 
 public class JWTRefreshRequest {
     private String token;

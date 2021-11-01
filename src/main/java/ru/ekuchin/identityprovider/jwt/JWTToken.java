@@ -1,11 +1,11 @@
-package ru.projectosnova.identityprovider.jwt;
+package ru.ekuchin.identityprovider.jwt;
 
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import ru.projectosnova.identityprovider.IdentityProviderConfig;
+import ru.ekuchin.identityprovider.IdentityProviderConfig;
 
 import java.util.Date;
 import java.util.HashMap;
@@ -20,7 +20,7 @@ public class JWTToken {
     private IdentityProviderConfig idpConfig;
 
     public void generate(boolean isAccess, String username){
-        System.out.println(idpConfig==null);
+
         long validity;
         if (isAccess) {
             validity = idpConfig.getAccessLifetime();

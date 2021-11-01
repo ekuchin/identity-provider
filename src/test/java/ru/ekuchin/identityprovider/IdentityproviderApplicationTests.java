@@ -1,4 +1,4 @@
-package ru.projectosnova.identityprovider;
+package ru.ekuchin.identityprovider;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

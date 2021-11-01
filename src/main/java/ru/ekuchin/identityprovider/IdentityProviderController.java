@@ -1,13 +1,13 @@
-package ru.projectosnova.identityprovider;
+package ru.ekuchin.identityprovider;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import ru.projectosnova.identityprovider.jwt.JWTAuthRequest;
-import ru.projectosnova.identityprovider.jwt.JWTRefreshRequest;
-import ru.projectosnova.identityprovider.jwt.JWTToken;
-import ru.projectosnova.identityprovider.jwt.JWTTokenPairResponse;
+import ru.ekuchin.identityprovider.jwt.JWTRefreshRequest;
+import ru.ekuchin.identityprovider.jwt.JWTAuthRequest;
+import ru.ekuchin.identityprovider.jwt.JWTToken;
+import ru.ekuchin.identityprovider.jwt.JWTTokenPairResponse;
 
 @RestController
 public class IdentityProviderController {
@@ -32,8 +32,13 @@ public class IdentityProviderController {
     public ResponseEntity<?> refreshTokenPair(@RequestBody JWTRefreshRequest oldRefreshToken){
 
         jwtToken.setToken(oldRefreshToken.getToken());
-        String username = jwtToken.getUserName();
-        return generateTokenPair(username);
+        if (jwtToken.isValid()){
+            String username = jwtToken.getUserName();
+            return generateTokenPair(username);
+        }
+        else
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Token is invalid");
+
     }
 
     private ResponseEntity<?> generateTokenPair(String username){
