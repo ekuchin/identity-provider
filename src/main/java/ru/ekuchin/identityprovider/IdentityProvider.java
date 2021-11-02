@@ -7,7 +7,9 @@ public class IdentityProvider {
 
     public boolean validateUser(String username, String password){
         //TODO real user validation
-        return username.equalsIgnoreCase("vasya") && password.equals("V@sy@123");
+        boolean isVasya = username.equalsIgnoreCase("vasya") && password.equals("V@sy@123");
+        boolean isPetya = username.equalsIgnoreCase("petya") && password.equals("Pety@123");
+        return (isVasya || isPetya);
     }
 
 }
