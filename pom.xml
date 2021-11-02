@@ -8,12 +8,12 @@
 		<version>2.5.1</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>ru.projectosnova</groupId>
-	<artifactId>identityprovider</artifactId>
+	<groupId>ru.ekuchin</groupId>
+	<artifactId>identity-provider</artifactId>
 	<version>0.1</version>
 	<packaging>war</packaging>
-	<name>identityprovider</name>
-	<description>Identity Provider for Osnova Project</description>
+	<name>identity-provider</name>
+	<description>Identity Provider</description>
 	<properties>
 		<java.version>11</java.version>
 		<maven.compiler.source>11</maven.compiler.source>
